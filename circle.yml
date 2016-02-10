@@ -1,0 +1,39 @@
+machine:
+  services:
+    # This is a Docker deployment
+    - docker
+
+  environment:
+    # Setting the tag for Docker-hub  | Using Circleci build number to track the deployed code incase of issues
+    #TAG: $CIRCLE_BRANCH-$CIRCLE_SHA1
+    TAG: $CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
+    # MY_IMAGE_NAME is hard coded in this file. The project’s environment variables do not pass at this stage.
+    DOCKER_IMAGE: champ45/tomstar-master:$TAG
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t $DOCKER_IMAGE .
+
+test:
+  override:
+    #- docker run -it --expose 8080  -d -p 8080:8080 champ45/java-hello-world; sleep 10
+    - docker run -d --name champ45 -p 8080:8080 $DOCKER_IMAGE; sleep 10
+    #- curl --retry 10 --retry-delay 5 -v http://localhost:8080
+
+deployment:
+  # An example for an environment
+  staging:
+
+    # The ‘automatic-.*’ is hook so we can automatically deploy from different branches.
+    # Usually we deploy automatically after a pull-request is merged to master.
+    branch: [master, /automatic-.*/]
+    #branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push $DOCKER_IMAGE
+
+      # Calling script for uploading JSON descriptor file
+      - sh ./create_docker_run_file.sh $TAG
+      # Calling script for setting new application version in AWS EB
+      #- sh ./upload_image_to_elasticbeanstalk.sh $TAG
