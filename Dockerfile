@@ -1,5 +1,5 @@
 FROM java:7
-MAINTAINER Srini<seeni45@gmail.com>
+MAINTAINER Srini<seeni45<at>gmail<dot>com>
 
 COPY src /home/root/java/src
 WORKDIR /home/root/java
