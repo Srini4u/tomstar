@@ -8,7 +8,7 @@ machine:
     #TAG: $CIRCLE_BRANCH-$CIRCLE_SHA1
     TAG: $CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
     # MY_IMAGE_NAME is hard coded in this file. The project’s environment variables do not pass at this stage.
-    DOCKER_IMAGE: champ45/tomstar-master:$TAG
+    DOCKER_IMAGE: champ45/tomstar:$TAG
 
 dependencies:
   override:
@@ -17,7 +17,6 @@ dependencies:
 
 test:
   override:
-    #- docker run -it --expose 8080  -d -p 8080:8080 champ45/java-hello-world; sleep 10
     - docker run -d --name champ45 -p 8080:8080 $DOCKER_IMAGE; sleep 10
     #- curl --retry 10 --retry-delay 5 -v http://localhost:8080
 
@@ -36,4 +35,4 @@ deployment:
       # Calling script for uploading JSON descriptor file
       - sh ./create_docker_run_file.sh $TAG
       # Calling script for setting new application version in AWS EB
-      #- sh ./upload_image_to_elasticbeanstalk.sh $TAG
+      - sh ./upload_image_to_elasticbeanstalk.sh $TAG
