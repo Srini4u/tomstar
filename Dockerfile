@@ -1,4 +1,4 @@
-FROM java:7
+FROM java:8
 MAINTAINER Srini<seeni45<at>gmail<dot>com>
 
 COPY src /home/root/java/src
