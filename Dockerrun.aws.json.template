@@ -1,16 +1,16 @@
 {
-  "AWSEBDockerrunVersion": "1",
+  "AWSEBDockerrunVersion":"1",
   "Authentication": {
-    "Bucket": "<DEPLOYMENT_BUCKET>",
-    "Key": "<AUTHENTICATION_KEY>"
+    "Bucket":"<DEPLOYMENT_BUCKET>",
+    "Key":"<AUTHENTICATION_KEY>"
   },
   "Image": {
-    "Name": “champ45/<IMAGE_NAME>:<TAG>",
-    "Update": "true"
+    "Name":"champ45/<IMAGE_NAME>:<TAG>",
+    "Update":"true"
   },
   "Ports": [
     {
-      "ContainerPort": "<EXPOSED_PORTS>"
+      "ContainerPort":"<EXPOSED_PORTS>"
     }
   ]
 }
