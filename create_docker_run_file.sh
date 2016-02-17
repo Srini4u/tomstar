@@ -29,4 +29,4 @@ sed 's/\<TAG\>/$DOCKER_TAG/g' ./Dockerrun.aws.json.template > $DOCKERRUN_FILE
 echo "DOCKERRUN_FILE::=> $DOCKERRUN_FILE"
 
 # Uploading json file to $S3_PATH
-aws s3 cp $DOCKERRUN_FILE $S3_PATH
+aws s3 cp ./$DOCKERRUN_FILE $S3_PATH
