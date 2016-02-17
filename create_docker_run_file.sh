@@ -24,6 +24,8 @@ sed -i 's/\<IMAGE_NAME\>/$IMAGE_NAME/g' $DOCKERRUN_FILE
 sed -i 's/\<EXPOSED_PORTS\>/$EXPOSED_PORTS/g' $DOCKERRUN_FILE
 sed -i 's/\<AUTHENTICATION_KEY\>/$AUTHENTICATION_KEY/g' $DOCKERRUN_FILE
 
+sed 's/\<TAG\>/$DOCKER_TAG/g' ./Dockerrun.aws.json.template > $DOCKERRUN_FILE
+
 echo "DOCKERRUN_FILE::=> $DOCKERRUN_FILE"
 
 # Uploading json file to $S3_PATH
