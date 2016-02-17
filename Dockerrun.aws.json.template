@@ -1,16 +1,35 @@
+#{
+#  "AWSEBDockerrunVersion":"1",
+#  "Authentication": {
+#    "Bucket":"<DEPLOYMENT_BUCKET>",
+#    "Key":"<AUTHENTICATION_KEY>"
+#  },
+#  "Image": {
+#    "Name":"champ45/<IMAGE_NAME>:<TAG>",
+#    "Update":"true"
+#  },
+#  "Ports": [
+#    {
+#      "ContainerPort":"<EXPOSED_PORTS>"
+#    }
+#  ]
+#}
+
+
 {
-  "AWSEBDockerrunVersion":"1",
-  "Authentication": {
-    "Bucket":"<DEPLOYMENT_BUCKET>",
-    "Key":"<AUTHENTICATION_KEY>"
-  },
+  "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name":"champ45/<IMAGE_NAME>:<TAG>",
-    "Update":"true"
+    "Name": "champ45/tomstar",
+    "Update": "true"
+  },
+  "Authentication": {
+      "Bucket": "nuhome-bucket",
+      "Key": "docker/dockercfg"
   },
   "Ports": [
     {
-      "ContainerPort":"<EXPOSED_PORTS>"
+      "ContainerPort": "8080"
     }
-  ]
+  ],
+  "Logging": "/var/log/"
 }
