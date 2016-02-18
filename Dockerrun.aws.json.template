@@ -19,12 +19,12 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "champ45/tomstar:master-31",
+    "Name": "champ45/tomstar:master-32",
     "Update": "true"
   },
   "Authentication": {
       "Bucket": "nuhome-bucket",
-      "Key": "docker/dockercfg"
+      "Key": "docker/.dockercfg"
   },
   "Ports": [
     {
