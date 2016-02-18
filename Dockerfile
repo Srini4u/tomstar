@@ -7,6 +7,7 @@ RUN mkdir bin
 RUN javac -d bin src/main/java/org/cheetah/HelloCheetah.java
 
 EXPOSE 8080
+EXPOSE 80
 
 ENTRYPOINT ["java", "-cp", "bin", "org.cheetah.HelloCheetah"]
 
