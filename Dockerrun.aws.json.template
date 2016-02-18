@@ -5,7 +5,7 @@
     "Update": "true"
   },
   "Authentication": {
-      "Bucket": "nuhome-bucket",
+      "Bucket": "nuhome-bucket.s3.amazonaws.com",
       "Key": "docker/.dockercfg"
   },
   "Ports": [
