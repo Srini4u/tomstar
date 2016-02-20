@@ -1,5 +1,5 @@
 # tomstar
-Docker java microservice with Maven-CircleCi-DockerHub-AWS_Beanstalk
+Docker java microservice with Maven-CircleCi-DockerHub-AWS_Beanstalk.
 
 Thanks to :- 
 
