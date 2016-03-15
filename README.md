@@ -1,7 +1,7 @@
 # tomstar
 Docker java microservice with Maven-CircleCi-DockerHub-AWS_Beanstalk.
 
-Thanks to:- 
+Thanks to :- 
 
 https://github.com/sbasyal/java-hello-world 
 
